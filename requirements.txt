@@ -1,0 +1,15 @@
+# ML / data
+pandas>=2.0
+numpy>=1.26
+scikit-learn>=1.4
+xgboost>=2.0
+shap>=0.45
+joblib>=1.3
+
+# Backend (added tomorrow)
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+
+# Testing
+pytest>=8.0

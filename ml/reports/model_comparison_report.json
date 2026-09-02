@@ -1,0 +1,219 @@
+{
+  "trained_at": "2026-08-29T06:31:16Z",
+  "random_seed": 42,
+  "cv_folds": 5,
+  "dataset": {
+    "n_total": 4424,
+    "n_train": 3096,
+    "n_val": 664,
+    "n_test": 664,
+    "class_labels": [
+      "Dropout",
+      "Enrolled",
+      "Graduate"
+    ]
+  },
+  "cv_comparison": {
+    "logistic_regression": {
+      "test_accuracy": {
+        "mean": 0.7500072958465788,
+        "std": 0.017144471874246166
+      },
+      "test_f1_macro": {
+        "mean": 0.7099006573418363,
+        "std": 0.014094849067908075
+      },
+      "test_precision_macro": {
+        "mean": 0.712531207727481,
+        "std": 0.015527047289770063
+      },
+      "test_recall_macro": {
+        "mean": 0.7167907930861046,
+        "std": 0.012140935645750292
+      },
+      "fit_time_sec": 1.8
+    },
+    "random_forest": {
+      "test_accuracy": {
+        "mean": 0.764218562718224,
+        "std": 0.011680584434613613
+      },
+      "test_f1_macro": {
+        "mean": 0.6625076714182299,
+        "std": 0.0202697954275633
+      },
+      "test_precision_macro": {
+        "mean": 0.7147744497294235,
+        "std": 0.03087612533385727
+      },
+      "test_recall_macro": {
+        "mean": 0.6566177871045656,
+        "std": 0.014246264555114704
+      },
+      "fit_time_sec": 7.4
+    },
+    "xgboost": {
+      "test_accuracy": {
+        "mean": 0.7797170253791235,
+        "std": 0.006780304600437085
+      },
+      "test_f1_macro": {
+        "mean": 0.7096929250727627,
+        "std": 0.008656136444547088
+      },
+      "test_precision_macro": {
+        "mean": 0.7365044013988528,
+        "std": 0.008862955044597895
+      },
+      "test_recall_macro": {
+        "mean": 0.6985652664910604,
+        "std": 0.00861400690797531
+      },
+      "fit_time_sec": 18.9
+    }
+  },
+  "val_comparison": {
+    "logistic_regression": {
+      "accuracy": 0.7469879518072289,
+      "f1_macro": 0.7079792065758251,
+      "f1_weighted": 0.7579176031064548,
+      "roc_auc_ovr_macro": 0.8850356739056225
+    },
+    "random_forest": {
+      "accuracy": 0.7650602409638554,
+      "f1_macro": 0.6761806188246003,
+      "f1_weighted": 0.7470201382406577,
+      "roc_auc_ovr_macro": 0.889815204469382
+    },
+    "xgboost": {
+      "accuracy": 0.7786144578313253,
+      "f1_macro": 0.7112633478073499,
+      "f1_weighted": 0.7716765962220724,
+      "roc_auc_ovr_macro": 0.8916832326339327
+    }
+  },
+  "selected_model": "logistic_regression",
+  "selection_rationale": "Selected 'logistic_regression' based on macro-F1 during 5-fold stratified cross-validation on the training split, not raw accuracy, because macro-F1 weights all three classes equally and this dataset is imbalanced (Graduate ~50%, Dropout ~32%, Enrolled ~18%). A model that only predicts the majority class well would still score high accuracy while badly under-serving 'Enrolled' students, who are arguably the group where early intervention matters most.",
+  "baseline_majority_class": {
+    "strategy": "predict majority class (Graduate)",
+    "accuracy": 0.5,
+    "f1_macro": 0.2222222222222222
+  },
+  "test_set_metrics_pre_refit": {
+    "accuracy": 0.7259036144578314,
+    "f1_macro": 0.6897592753135858,
+    "f1_weighted": 0.7396921179940159,
+    "precision_macro": 0.6960728627395293,
+    "recall_macro": 0.7028579461650603,
+    "per_class": {
+      "Dropout": {
+        "precision": 0.8108108108108109,
+        "recall": 0.704225352112676,
+        "f1-score": 0.7537688442211056,
+        "support": 213.0
+      },
+      "Enrolled": {
+        "precision": 0.41208791208791207,
+        "recall": 0.6302521008403361,
+        "f1-score": 0.4983388704318937,
+        "support": 119.0
+      },
+      "Graduate": {
+        "precision": 0.8653198653198653,
+        "recall": 0.7740963855421686,
+        "f1-score": 0.8171701112877583,
+        "support": 332.0
+      },
+      "accuracy": 0.7259036144578314,
+      "macro avg": {
+        "precision": 0.6960728627395293,
+        "recall": 0.7028579461650603,
+        "f1-score": 0.6897592753135858,
+        "support": 664.0
+      },
+      "weighted avg": {
+        "precision": 0.7666074691677102,
+        "recall": 0.7259036144578314,
+        "f1-score": 0.7396921179940159,
+        "support": 664.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        150,
+        47,
+        16
+      ],
+      [
+        20,
+        75,
+        24
+      ],
+      [
+        15,
+        60,
+        257
+      ]
+    ],
+    "roc_auc_ovr_macro": 0.8908943879218398
+  },
+  "test_set_metrics_final_model": {
+    "accuracy": 0.7409638554216867,
+    "f1_macro": 0.7065490754789386,
+    "f1_weighted": 0.7539117950686539,
+    "precision_macro": 0.7109338061465721,
+    "recall_macro": 0.7210940657726974,
+    "per_class": {
+      "Dropout": {
+        "precision": 0.824468085106383,
+        "recall": 0.7276995305164319,
+        "f1-score": 0.773067331670823,
+        "support": 213.0
+      },
+      "Enrolled": {
+        "precision": 0.43333333333333335,
+        "recall": 0.6554621848739496,
+        "f1-score": 0.5217391304347826,
+        "support": 119.0
+      },
+      "Graduate": {
+        "precision": 0.875,
+        "recall": 0.7801204819277109,
+        "f1-score": 0.8248407643312102,
+        "support": 332.0
+      },
+      "accuracy": 0.7409638554216867,
+      "macro avg": {
+        "precision": 0.7109338061465721,
+        "recall": 0.7210940657726974,
+        "f1-score": 0.7065490754789386,
+        "support": 664.0
+      },
+      "weighted avg": {
+        "precision": 0.7796360975818167,
+        "recall": 0.7409638554216867,
+        "f1-score": 0.7539117950686539,
+        "support": 664.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        155,
+        43,
+        15
+      ],
+      [
+        19,
+        78,
+        22
+      ],
+      [
+        14,
+        59,
+        259
+      ]
+    ],
+    "roc_auc_ovr_macro": 0.8924583255735308
+  },
+  "model_version": "2026-08-29-v1"
+}

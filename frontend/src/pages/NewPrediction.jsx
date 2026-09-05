@@ -44,12 +44,12 @@ export default function NewPrediction() {
         precomputed or hardcoded.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: result ? "1fr 1fr" : "1fr", gap: 24, alignItems: "start" }}>
+      <div style={{ display: "grid", gridTemplateColumns: result ? "repeat(auto-fit, minmax(320px, 1fr))" : "1fr", gap: 24, alignItems: "start" }}>
         <form onSubmit={handleSubmit}>
           {FORM_SECTIONS.map((section) => (
             <div key={section.title} className="card" style={{ marginBottom: 16 }}>
               <h3>{section.title}</h3>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px 16px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "14px 16px" }}>
                 {section.fields.map((field) => (
                   <div key={field.key}>
                     <label htmlFor={field.key}>{field.label}</label>

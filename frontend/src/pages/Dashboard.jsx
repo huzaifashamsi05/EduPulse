@@ -53,7 +53,7 @@ export default function Dashboard() {
       </p>
 
       {/* --- Top stat row --- */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, margin: "24px 0" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 16, margin: "24px 0" }}>
         <StatCard label="Total Students" value={summary.total_students} />
         <StatCard
           label="High Risk"
@@ -99,7 +99,7 @@ export default function Dashboard() {
       </div>
 
       {/* --- Charts --- */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 16, marginBottom: 24 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16, marginBottom: 24 }}>
         <div className="card">
           <h3>Predicted Outcome Distribution</h3>
           <ResponsiveContainer width="100%" height={220}>

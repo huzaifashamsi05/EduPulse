@@ -7,7 +7,7 @@
  * "hardcoding" a prediction anywhere (brief 21: "Hard-coded prediction in
  * React" is explicitly called out as a common failure mode).
  */
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "https://shiny-fiesta-5gj6qg4qqrxr2p7g5-8000.app.github.dev";
 
 async function request(path, options = {}) {
   let response;

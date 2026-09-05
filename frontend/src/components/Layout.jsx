@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
 const NAV_ITEMS = [
@@ -9,17 +10,25 @@ const NAV_ITEMS = [
 ];
 
 export default function Layout() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
-      <aside
-        style={{
-          width: "var(--sidebar-width)",
-          flexShrink: 0,
-          borderRight: "1px solid var(--hairline)",
-          background: "var(--surface)",
-          padding: "28px 20px",
-        }}
+    <div className="app-shell">
+      <button
+        className="mobile-menu-btn"
+        onClick={() => setMenuOpen((v) => !v)}
+        aria-label="Toggle navigation menu"
       >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      {menuOpen && (
+        <div className="sidebar-overlay" onClick={() => setMenuOpen(false)} />
+      )}
+
+      <aside className={`app-sidebar ${menuOpen ? "sidebar-open" : ""}`}>
         <div style={{ marginBottom: 32 }}>
           <div style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 600 }}>
             EduPulse
@@ -35,6 +44,7 @@ export default function Layout() {
               key={item.to}
               to={item.to}
               end={item.end}
+              onClick={() => setMenuOpen(false)}
               style={({ isActive }) => ({
                 display: "block",
                 padding: "9px 12px",
@@ -53,7 +63,7 @@ export default function Layout() {
         </nav>
       </aside>
 
-      <main style={{ flex: 1, padding: "36px 44px", maxWidth: 1200 }}>
+      <main className="app-main">
         <Outlet />
       </main>
     </div>

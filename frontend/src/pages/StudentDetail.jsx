@@ -55,7 +55,7 @@ export default function StudentDetail() {
         Course #{student.course} · Age {student.age_at_enrollment}
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, margin: "24px 0" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16, margin: "24px 0" }}>
         <PredictionCard prediction={prediction} />
         <ExplanationCard explanation={explanation} />
       </div>
@@ -63,7 +63,7 @@ export default function StudentDetail() {
       {/* --- Raw feature reference --- */}
       <div className="card">
         <h3>Student Record</h3>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "10px 24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "10px 24px" }}>
           {Object.entries(student.features).map(([key, value]) => (
             <div key={key} style={{ fontSize: "0.83rem" }}>
               <span style={{ color: "var(--ink-faint)" }}>{FEATURE_LABEL_BY_KEY[key] || key}: </span>

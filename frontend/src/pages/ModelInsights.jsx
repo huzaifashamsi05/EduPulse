@@ -93,7 +93,7 @@ export default function ModelInsights() {
         </p>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20, marginBottom: 20 }}>
         {/* --- Confusion matrix --- */}
         <div className="card">
           <h3>Confusion Matrix (held-out test set)</h3>

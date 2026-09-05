@@ -61,7 +61,7 @@ export default function Students() {
       )}
 
       {status === "ready" && filtered.length > 0 && (
-        <div className="card" style={{ padding: 0, overflow: "hidden" }}>
+        <div className="card table-scroll" style={{ padding: 0 }}>
           <table>
             <thead>
               <tr style={{ textAlign: "left", borderBottom: "1px solid var(--hairline)", background: "var(--surface-sunken)" }}>

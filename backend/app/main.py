@@ -156,3 +156,8 @@ def analytics_summary():
     and the highest-risk students table.
     """
     return get_summary()
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
+_frontend_dist = Path(__file__).resolve().parents[2] / "frontend" / "dist"
+if _frontend_dist.exists():
+    app.mount("/", StaticFiles(directory=str(_frontend_dist), html=True), name="frontend")

@@ -13,3 +13,5 @@ pydantic>=2.6
 
 # Testing
 pytest>=8.0
+# Streamlit demo (free-hosted alternative front door onto the same model)
+streamlit>=1.38
